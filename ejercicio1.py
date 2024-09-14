@@ -4,8 +4,8 @@ import numpy as np
 
 # Creamos la clase histograma
 class Histograma:
-    def _init_(self, datos):
-        #Inicializa la clase con un conjunto de datos
+    def __init__(self, datos):
+        # Inicializa la clase con un conjunto de datos
         self.datos = datos
 
     # Definimos el método para graficar los histogramas de frecuencia
