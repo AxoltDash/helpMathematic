@@ -13,8 +13,8 @@ def elipticas(mu, nu, a=1):
 
 def graficar_elipticas():
     # Graficar cuadrícula cartesiana transformada
-    mu_vals = np.linspace(0.1, 2, 10)  # Evitamos mu = 0 para evitar singularidad en cosh
-    nu_vals = np.linspace(0, 2*np.pi, 100)
+    mu_vals = np.linspace(0.1, 2, 20)  # Evitamos mu = 0 para evitar singularidad en cosh
+    nu_vals = np.linspace(0, 2*np.pi, 200)
 
     plt.figure(figsize=(6,6))
 
@@ -23,7 +23,7 @@ def graficar_elipticas():
         X, Y = elipticas(mu, nu_vals)
         plt.plot(X, Y, 'b', lw=1)  # Líneas azules para la cuadrícula
 
-    for nu in np.linspace(0, 2*np.pi, 10):
+    for nu in np.linspace(0, 2*np.pi, 30):
         mu_vals = np.linspace(0.1, 2, 100)
         X, Y = elipticas(mu_vals, nu)
         plt.plot(X, Y, 'r', lw=1)  # Líneas rojas para la cuadrícula
@@ -54,11 +54,11 @@ def graficar_elipticas():
 
 # Función de transformación parabólica
 def parabolicas(xi, eta):
-    x = 0.5 * (xi**2 - eta**2)
-    y = xi * eta
+    x = xi * eta
+    y = 0.5 * (xi**2 - eta**2)
     return x, y
 
-def graficar_parabolocas():
+def graficar_paraboloicas():
     # Graficar cuadrícula cartesiana transformada
     xi_vals = np.linspace(-2, 2, 20)
     eta_vals = np.linspace(-2, 2, 5)
@@ -67,14 +67,14 @@ def graficar_parabolocas():
 
     # Graficar líneas de la cuadrícula parabólica
     for xi in xi_vals:
-        eta_vals = np.linspace(-2, 2, 100)
+        eta_vals = np.linspace(-2, 2, 50)
         X, Y = parabolicas(xi, eta_vals)
-        plt.plot(X, Y, 'b', lw=1)  # Líneas azules para la cuadrícula
+        plt.plot(X, Y, 'r', lw=1)  # Líneas azules para la cuadrícula
 
     for eta in eta_vals:
         xi_vals = np.linspace(-2, 2, 20)
         X, Y = parabolicas(xi_vals, eta)
-        plt.plot(X, Y, 'r', lw=1)  # Líneas rojas para la cuadrícula
+        plt.plot(X, Y, 'b', lw=1)  # Líneas rojas para la cuadrícula
 
     plt.title("Cuadrícula cartesiana transformada a coordenadas parabólicas")
     plt.xlabel("x")
@@ -108,7 +108,7 @@ def bipolares(mu, nu, a=1):
 
 def graficar_bipolares():
     # Graficar cuadrícula cartesiana transformada
-    mu_vals = np.linspace(-2, 2, 10)
+    mu_vals = np.linspace(-2, 2, 20)
     nu_vals = np.linspace(0, 2*np.pi, 10)
 
     plt.figure(figsize=(6,6))
@@ -128,7 +128,8 @@ def graficar_bipolares():
     plt.xlabel("x")
     plt.ylabel("y")
     plt.grid(True)
-    plt.axis('equal')
+    plt.xlim(-4,4)
+    plt.ylim(-4,4)
     plt.show()
 
     # Cálculo del factor de cambio de área (Jacobiano)
@@ -147,5 +148,5 @@ def graficar_bipolares():
     sp.pprint(det_J_simplified)
     
 graficar_elipticas()
-graficar_parabolocas()
+graficar_paraboloicas()
 graficar_bipolares()
