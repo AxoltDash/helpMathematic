@@ -18,7 +18,7 @@ Y = b * np.sinh(MU) * np.sin(NU)
 
 # Coloca la función que deseas graficar aquí
 function1 = X - Y
-function2 = ((X - (1/2)) + ((Y - (1/2))**2))/4
+function2 = ((X - (1/2)) + ((Y - (1/2))**2))*4
 
 # Crear la gráfica 1
 plt.figure(figsize=(8, 8))
