@@ -20,7 +20,7 @@ function3 = ((X - 1/2) + (Y - 1/2)**2 * 4) -1
 # Crear la gráfica 1
 plt.figure(figsize=(8, 8))
 plt.contour(X, Y, function1, levels=20, cmap='viridis')
-plt.title("Gráfico de Coordenadas Elípticas")
+plt.title("Gráfico de Coordenadas Parabolicas")
 plt.colorbar(label="Valor de la Función")
 plt.show()
 

@@ -27,7 +27,7 @@ def graficar(values, Title):
     plt.figure(figsize=(10, 6))
     plt.contourf(sigma, tau, values, levels=np.linspace(-1, 1, 100), cmap='plasma')
     plt.colorbar(label='Function Value')
-    plt.title('Coordenadas Elipticas: ' + Title)
+    plt.title('Coordenadas Parabolicas: ' + Title)
     plt.xlabel('sigma')
     plt.ylabel('tau')
     plt.contour(sigma, tau, values, levels=[0], colors='cyan')  # Plot function as a red line
